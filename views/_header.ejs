@@ -1,11 +1,15 @@
 <header>
-    Page Header
-</header>
-
+    <h2>
+        <a href="/">
+            Codeial
+        </a>
+        
+    </h2>
+    
 <ul>
     <% if (locals.user){ %>
         <li> 
-            <a href="/user/profile">
+            <a href="/user/profile" id='user-name'>
                 <%= user.name %>
             </a>
         </li>
@@ -26,3 +30,4 @@
 
 
 </ul>
+</header>

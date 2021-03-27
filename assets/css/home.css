@@ -1,0 +1,11 @@
+h1 {
+  text-align: center;
+}
+
+#feed-posts {
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid grey;
+  width: 500px;
+  padding: 20px;
+}

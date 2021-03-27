@@ -1,0 +1,30 @@
+header{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    background-color: #4d2c91;
+    justify-content: space-between;
+    h2{
+        margin: 10px 0px 0px 5px;
+        a{
+            color: black;
+            text-decoration: none;
+        }
+    }
+    ul{
+        list-style: none;
+        text-align: end;
+        padding-right: 10px;
+        margin: 15px 10px 0px 0px;
+        li{
+            display: inline;
+            padding: 5px;
+            #user-name{
+                text-transform: capitalize;
+            }
+            a{
+                color: black;
+            }
+        }
+    }
+}
