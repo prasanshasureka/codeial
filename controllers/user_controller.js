@@ -2,9 +2,26 @@ const User = require('../models/user');
 
 module.exports.profile = function(req, res){
     // res.end('<h1>User Profile</h1>');
-    return res.render('user_profile', {
-        title: 'Profile'
+    User.findById(req.params.id, function(err, user){
+        return res.render('user_profile', {
+            title: 'Profile',
+            profile_user: user
+        })
     })
+    
+}
+
+module.exports.update = function(req, res){
+    if (req.params.id == req.user.id){
+        User.findByIdAndUpdate(req.params.id,{name: req.body.name, email: req.body.email} ,function(err, user){
+            return res.redirect('back');
+        });
+    } else {
+        return res.status(401).send('Unauthorized');
+    }
+    
+    
+    
 }
 
 module.exports.posts = function(req, res){

@@ -1,11 +1,16 @@
-h1 {
-  text-align: center;
+#home-container {
+  display: flex;
+  height: 100%;
 }
 
-#feed-posts {
-  margin: auto;
-  margin-top: 50px;
-  border: 1px solid grey;
-  width: 500px;
-  padding: 20px;
+#home-container #feed-posts {
+  width: 80%;
+  padding: 10px;
+}
+
+#home-container #user-friends {
+  border-left: 1px solid grey;
+  width: 20%;
+  padding-left: 10px;
+  height: 100%;
 }
