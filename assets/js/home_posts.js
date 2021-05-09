@@ -6,7 +6,7 @@
 
         newPostForm.submit(function(e){
             e.preventDefault();
-
+            
             $.ajax({
                 type: 'post',
                 url: '/posts/create',
@@ -31,8 +31,17 @@
                     console.log(error.responseText);
                 }
             });
+            // $('#new-post-form')[0].reset();
+            newPostForm[0].reset();
+            
         });
+
+        
+
+        
     }
+
+    
 
     // method to create a post in DOM
     
