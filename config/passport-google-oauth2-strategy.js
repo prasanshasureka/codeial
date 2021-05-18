@@ -13,7 +13,7 @@ passport.use(new googleStrategy({
         // find a user
         User.findOne({email: profile.emails[0].value}).exec(function(err, user){
             if (err){console.log("Error in google strategy passport",err); return;}
-            console.log(profile);
+            // console.log(profile);
 
             if (user){
                 // if found, set this user as req.user
