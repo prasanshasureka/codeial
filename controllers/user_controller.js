@@ -2,6 +2,7 @@ const User = require('../models/user');
 const fs = require('fs');
 const path = require('path');
 
+
 module.exports.profile = async function(req, res){
     // res.end('<h1>User Profile</h1>');
     let user = await User.findById(req.params.id);
