@@ -31,13 +31,14 @@ module.exports.update = async function(req, res){
                 }
                 user.name = req.body.name;
                 user.email = req.body.email;
-                avatarID = 'avatar-' + user.avatar.split('-').slice(-1);
+                
                 
                 if (req.file){
                     
                     // if user has avatar delete that avatar
                     
                     if (user.avatar){
+                        avatarID = 'avatar-' + user.avatar.split('-').slice(-1);
                         if (fs.existsSync(__dirname, '..', 'uploads', 'users', avatarID)) {
                             fs.unlinkSync(path.join(__dirname , '..'  , user.avatar));
                         }
