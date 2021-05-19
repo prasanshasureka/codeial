@@ -8,6 +8,7 @@ router.get('/', homeController.home);
 router.use('/user', require('./users'));
 router.use('/posts', require('./posts'));
 router.use('/comment', require('./comment'));
+router.use('/reset_password', require('./reset_password'));
 
 router.use('/api', require('./api'));
 
