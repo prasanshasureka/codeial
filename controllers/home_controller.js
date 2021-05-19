@@ -30,7 +30,6 @@ module.exports.home = async function(req, res){
         });
 
         let all_users = await User.find({});
-
         return res.render('home', {
             title: 'Home Page',
             posts: posts,
