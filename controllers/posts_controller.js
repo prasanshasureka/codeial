@@ -42,13 +42,19 @@ module.exports.create = async function(req, res){
 module.exports.destroy = async function(req, res){
 
     try{
-        let post = await Post.findById(req.params.id);
+        let post = await Post.findById(req.params.id).populate('comments').exec();
 
         if (post.user == req.user.id){
 
             
             await Like.deleteMany({likeable: post, onModel: 'Post'});
-            await Like.deleteMany({_id: {$in: post.comments}});
+            // await Like.deleteMany({_id: {$in: post.comments}});
+
+            // iterate over all comments of a post and delete all likes inside each comment
+            post.comments.forEach(async function(_comment){
+                await Like.deleteMany({_id: {$in: _comment.likes}});
+            })
+            
 
 
             post.remove();
