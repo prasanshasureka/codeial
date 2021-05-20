@@ -1,5 +1,6 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
+const Like = require('../models/like');
 const commentsMailer = require('../mailers/comments_mailer');
 const commentEmailWorker = require('../workers/comment_email_worker');
 const queue = require('../config/kue');
@@ -59,16 +60,20 @@ module.exports.destroy = async function(req, res){
     try{
         // populate post users so that post owner can delete any comment
         let comment = await Comment.findById(req.params.id).populate('post', 'user').exec();
-        // console.log(comment.post)
+        // console.log(comment)
         // let post = await Post.findById(comment.post);
         if (comment.user == req.user.id || comment.post.user == req.user.id){
 
-            let postId = comment.post;
-
+            let postId = comment.post._id;
+            let postDel = await Post.findById(postId);
+            postDel.comments.pull(req.params.id);
+            postDel.save()
+            
+            
             comment.remove();
 
-            let post = Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
-
+            
+            await Like.deleteMany({likeable: comment._id, onModel: 'Comment'});
             // send the comment id which was deleted back to the views
             if (req.xhr){
                 return res.status(200).json({

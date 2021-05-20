@@ -1,6 +1,5 @@
 #home-container {
   display: flex;
-  height: 100%;
 }
 
 #home-container #feed-posts {

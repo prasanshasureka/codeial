@@ -9,6 +9,7 @@ router.use('/user', require('./users'));
 router.use('/posts', require('./posts'));
 router.use('/comment', require('./comment'));
 router.use('/reset_password', require('./reset_password'));
+router.use('/likes', require('./like'));
 
 router.use('/api', require('./api'));
 
