@@ -1,6 +1,6 @@
 const kue = require('kue');
 const queue = kue.createQueue();
-
+console.log('Redis running')
 
 // add kue ui
 var kueUiExpress = require('kue-ui-express');
