@@ -1,16 +1,35 @@
-<h1>
-    Sign Up
-</h1>
-
-<form action="/user/create" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-    <input type="submit">
-
-</form>
-
-<p>
-    <a href="/user/auth/google">Google Sign In/Sign Up</a>
-</p>
+<link rel="stylesheet" href="/css/sign_up.css">
+<div id="sign-up-div">
+    <h1>
+        Sign Up 
+    </h1>
+    <br>
+    <form action="/user/create" method="POST" id="sign-up-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <input type="submit" id="submit-btn">
+    
+    </form>
+    
+    <div id="social-sign-in"></div>
+    <p>
+        or connect with
+        <ul>
+            <li>
+                <a href="/user/auth/google"><img src="https://hrcdn.net/community-frontend/assets/google-colored-20b8216731.svg"></a>
+            </li>
+            <li>
+                <a href="/user/auth/google"><img src="https://hrcdn.net/community-frontend/assets/facebook-colored-af4249157d.svg"></a>
+            </li>
+            <li>
+                <a href="/user/auth/google"><img src="https://hrcdn.net/community-frontend/assets/linkedin-colored-1db195795c.svg"></a>
+            </li>
+            <li>
+                <a href="/user/auth/google"><img src="https://hrcdn.net/community-frontend/assets/github-colored-1db995054b.svg"></a>
+            </li>
+        </ul>
+        
+    </p>
+</div>

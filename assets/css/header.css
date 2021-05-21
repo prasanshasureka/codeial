@@ -1,13 +1,13 @@
 header {
-  height: 10%;
+  height: 3rem;
   display: flex;
   flex-direction: row;
-  background-color: #4d2c91;
+  background-color: #b3e5fc;
   justify-content: space-between;
 }
 
 header h2 {
-  margin: 10px 0px 0px 5px;
+  margin: 10px 0px 0px 10px;
 }
 
 header h2 a {
@@ -33,4 +33,11 @@ header ul li #user-name {
 
 header ul li a {
   color: black;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+header ul li a:hover {
+  color: #01579b;
+  font-weight: bold;
 }

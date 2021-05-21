@@ -1,5 +1,6 @@
 #home-container {
   display: flex;
+  min-height: 100%;
 }
 
 #home-container #feed-posts {
@@ -12,4 +13,42 @@
   width: 20%;
   padding-left: 10px;
   height: 100%;
+}
+
+#home-container .welcome-page {
+  display: flex;
+  direction: column;
+  height: 90%;
+}
+
+#home-container img {
+  width: 70%;
+  height: 90%;
+}
+
+#home-container .get-started {
+  width: 30%;
+  height: auto;
+  align-self: center;
+  padding: 2rem;
+}
+
+#home-container .get-started .sign-up-btn {
+  height: 2rem;
+  width: 7rem;
+  border-radius: 1.5rem;
+  display: flex;
+  background-color: #b3e5fc;
+  align-items: center;
+  justify-content: center;
+}
+
+#home-container .get-started .sign-up-btn a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+#home-container .get-started .sign-up-btn:hover {
+  background-color: #0086c3;
 }

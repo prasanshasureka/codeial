@@ -1,0 +1,83 @@
+#sign-up-div {
+  display: flex;
+  background-color: #c9ecfc;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin-left: 35%;
+  margin-top: 5%;
+  box-shadow: 0px 0px 3px #888888;
+}
+
+#sign-up-div p {
+  margin: 2px;
+}
+
+#sign-up-div h1 {
+  padding: 1rem;
+}
+
+#sign-up-div #sign-up-form #submit-btn {
+  height: 2rem;
+  width: 7rem;
+  border-radius: 1.5rem;
+  border: 0px;
+  background-color: #03a9f4;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0px;
+  box-shadow: 0px 0px 3px #888888;
+}
+
+#sign-up-div #sign-up-form #submit-btn:hover {
+  background-color: #0086c3;
+}
+
+#sign-up-div #sign-up-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sign-up-div #sign-up-form input {
+  display: block;
+  font-size: 11px;
+  padding: 10px;
+  width: 15rem;
+  margin: 2px 0 10px 10px;
+  border: 0px;
+  box-shadow: 0px 0px 3px #888888;
+}
+
+#sign-up-div ul {
+  list-style: none;
+  text-align: start;
+  margin: 8px;
+  margin-left: -23px;
+  display: inline;
+}
+
+#sign-up-div ul li {
+  display: inline;
+  padding: 5px;
+}
+
+#sign-up-div ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+#sign-up-div ul li a img {
+  display: inline;
+  width: 2rem;
+  height: 2rem;
+  margin: 5px;
+}
+
+#sign-up-div ul li a:hover {
+  color: #01579b;
+  font-weight: bold;
+}

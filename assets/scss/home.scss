@@ -1,6 +1,6 @@
 #home-container{
     display: flex;
-    // height: 100%;
+    min-height: 100%;
     #feed-posts{
         // margin: auto;
         // margin-top: 50px;
@@ -13,5 +13,38 @@
         width: 20%;
         padding-left: 10px;
         height: 100%;
+    }
+    .welcome-page{
+        display: flex;
+        direction: column;
+        height: 90%;
+    }
+    img{
+        width: 70%;
+        height: 90%;
+        // margin-right: 5%;
+    }
+    .get-started{
+        width: 30%;
+        height: auto;
+        align-self: center;
+        padding: 2rem;
+        .sign-up-btn{
+            height: 2rem;
+            width: 7rem;
+            border-radius: 1.5rem;
+            display: flex;
+            // border: 1px solid black;
+            background-color: #b3e5fc;
+            align-items: center;
+            justify-content: center;
+            a{
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+            }
+        }.sign-up-btn:hover{
+            background-color: #0086c3;
+        }
     }
 }
