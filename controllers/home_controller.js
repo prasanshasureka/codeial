@@ -9,6 +9,8 @@ module.exports.home = async function(req, res){
     //         posts: posts
     //     });
     // });
+    
+
 
     try {
         let posts = await Post.find({})
@@ -35,6 +37,8 @@ module.exports.home = async function(req, res){
                 path: 'post'
             }
         });
+
+        
 
         let all_users = await User.find({});
         return res.render('home', {

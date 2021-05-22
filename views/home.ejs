@@ -1,39 +1,52 @@
 <link rel="stylesheet" href="/css/home.css">
 
+
 <div id="home-container">
     <% if (locals.user){ %>
-    <section id="feed-posts">
-        <h4>Posts</h4>
-            <form action="/posts/create" method="POST" id="new-post-form">
+        <section id="user-profile">
+            <h3>
+                <%= user.name %>
+            </h3>
+            <div id="profile-image">
+                <img src="<%= user.avatar %>" alt="<%= user.name %>">
+            </div>
+        </section>
+        <section id="feed-posts">
+            <div id="make-post">
+                <h4>Create a Post</h4>
+                <form action="/posts/create" method="POST" id="new-post-form">
                 <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
-                <input type="submit" value="Post">
-            </form>
-        <div id="post-list-container">
+                <input type="submit" value="Post" id="post-btn">
+                </form>
+            </div>
+            <div id="make-post-border"></div>
+            <div id="post-list-container">
+                <ul>
+                    <% for (post of posts) {%>
+                        
+                        <%- include('_post.ejs') -%>
+        
+                    <% } %>
+                </ul>
+            </div>
+            
+        </section>
+        
+        <section id="user-friends">
+            <h3>
+                Friends
+            </h3>
             <ul>
-                <% for (post of posts) {%>
+                <% for (u of all_users) {%>
                     
-                    <%- include('_post.ejs') -%>
-    
+                    <li>
+                        <a href="/user/profile/<%= u.id %>"> <%= u.name  %></a>
+                    </li>
+        
                 <% } %>
             </ul>
-        </div>
+        </section>
         
-    </section>
-    
-    <section id="user-friends">
-        <h3>
-            Friends
-        </h3>
-        <ul>
-            <% for (u of all_users) {%>
-                
-                <li>
-                    <a href="/user/profile/<%= u.id %>"> <%= u.name  %></a>
-                </li>
-    
-            <% } %>
-        </ul>
-    </section>
     <% }else { %>
     <div class="welcome-page">
         <img src="/images/4575.jpg" alt="Poor Connection">
@@ -51,7 +64,7 @@
 
 <script src="/js/home_post_comments.js" ></script>
 <script src="/js/home_posts.js"></script>
-
+<script src="/js/time_lapsed.js" ></script>
 <script src="/js/likes.js"></script>
 <script>
     $('.toggle-like-button').each(function(){
@@ -59,4 +72,3 @@
         let toggleLike = new ToggleLike(self);
     });
 </script>
-

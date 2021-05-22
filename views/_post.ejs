@@ -1,29 +1,46 @@
-<li id="post-<%= post._id %>">
-    <% if (locals.user && locals.user.id == post.user.id) { %>
-        <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
-    <% } %>
-    <p>
-        <%= post.content %>
-        <br>
-        <small>
-            <%= post.user.name %>
-        </small>
-        <br>
-        <% if (locals.user) { %>
-            <small>
-                <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%= post.id %>&type=Post">
-                    <%= post.likes.length %> Likes
-                </a>
-            </small>
-        <% }else {%>
-            <small>
-                
-                    <%= post.likes.length %> Likes
-                
-            </small>
-        <%} %>
+<link rel="stylesheet" href="/css/post_card.css">
+
+<li id="post-<%= post._id %>" class="post">
+    <div id="post-header">
+        <div id="post-user">
+            <div id="profile-image">
+                <img src="<%= post.user.avatar %>" alt="<%= post.user.name %>">
+            </div>
+            <div id="post-user-name-createdat">
+                <p>
+                    <%= post.user.name %>
+                </p>
+                <p id="post-created-at">
+                    <%= post.createdAt %>
+                </p>
+            </div>
+        </div>
         
-    </p>
+        <% if (locals.user && locals.user.id == post.user.id) { %>
+            <a class="delete-post-button" href="/posts/destroy/<%= post.id %>"><i class="fas fa-trash-alt"></i></a>
+        <% } %>
+    </div>
+    
+    <div id="post-content">
+        <p>
+            <%= post.content %>
+        </p>
+        <div id="post-likes">
+            <% if (locals.user) { %>
+                <small>
+                    <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%= post.id %>&type=Post">
+                        <%= post.likes.length %> Likes
+                    </a>
+                </small>
+            
+            <% }else {%>
+                <small>
+                    <%= post.likes.length %> Likes
+                </small>
+            <%} %>
+        </div>
+    </div>
+    
     <div class="post-comments-list">
         <ul id="post-comment-<%= post._id %>">
             <% for (comment of post.comments){ %>
@@ -33,12 +50,19 @@
             <% } %>
         
         </ul>
-        <% if (locals.user) {%>
-            <form id="post-<%= post._id %>-comments-form" action="/comment/create" method="POST">
-                <input type="text" name="content" placeholder="Add comment.." required>
-                <input type="hidden" name="post" value="<%= post._id %>" >
-                <input type="submit" value="Add Comment">
-            </form>
-        <% } %>
+        <div id="comment-profile">
+            <div id="profile-image">
+                <img src="<%= user.avatar %>" alt="<%= user.name %>">
+            </div>
+            <% if (locals.user) {%>
+                <form id="post-<%= post._id %>-comments-form" action="/comment/create" method="POST" class="comment-form">
+                    <input type="text" name="content" placeholder="Write a comment.." required>
+                    <input type="hidden" name="post" value="<%= post._id %>" >
+                    <input type="submit" value="Add" id="comment-btn">
+                </form>
+            <% } %>
+        </div>
+        
     </div>
 </li>
+

@@ -1,0 +1,130 @@
+.post {
+  background-color: white;
+  padding: 10px;
+  margin: 1rem;
+  box-shadow: 0px 0px 5px #cfd8dc;
+  border-radius: 0.5rem;
+}
+
+.post #post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-right: 1rem;
+}
+
+.post #post-header .delete-post-button {
+  text-decoration: none;
+  color: #dd2c00;
+}
+
+.post #post-user {
+  display: flex;
+  justify-content: start;
+}
+
+.post #post-user #post-user-name-createdat {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.post #post-user #post-user-name-createdat p {
+  margin: 2px;
+}
+
+.post #post-user #post-user-name-createdat #post-created-at {
+  font-size: 0.8rem;
+  color: #b0bec5;
+}
+
+.post #post-user #profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post #post-user #profile-image img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+}
+
+.post #post-content p {
+  margin: 10px 5px 10px 5px;
+  color: #546e7a;
+}
+
+.post #post-content #post-likes {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  border-top: 1px solid #e0e0e0;
+}
+
+.post #post-content #post-likes small {
+  margin: 10px 5px 10px 5px;
+}
+
+.post .post-comments-list {
+  border-top: 1px solid #e0e0e0;
+}
+
+.post .post-comments-list #comment-profile {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 1.5rem;
+}
+
+.post .post-comments-list #profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post .post-comments-list #profile-image img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+}
+
+.post .post-comments-list .comment-form {
+  padding-left: 0rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 2rem;
+  width: 20rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 1.5rem;
+  background-color: #eeeeee;
+  margin: 1rem;
+}
+
+.post .post-comments-list .comment-form #comment-btn {
+  border: 0px;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 0px;
+  color: #311b92;
+  margin: 2px 15px 2px 2px;
+}
+
+.post .post-comments-list .comment-form #comment-btn:hover {
+  font-weight: bold;
+}
+
+.post .post-comments-list .comment-form input {
+  margin: 0.5rem;
+  background-color: #eeeeee;
+  border: 0px;
+}
+
+.post .post-comments-list .comment-form input:focus {
+  outline: none;
+}

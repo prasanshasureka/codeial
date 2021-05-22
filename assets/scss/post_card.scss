@@ -1,0 +1,121 @@
+.post{
+    background-color: white;
+    padding: 10px;
+    margin: 1rem;
+    box-shadow: 0px 0px 5px #cfd8dc;
+    border-radius: 0.5rem;
+    // border: 0px;
+    #post-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e0e0e0;
+        padding-right: 1rem;
+        .delete-post-button{
+            text-decoration: none;
+            color: #dd2c00;
+        }
+    }
+    #post-user{
+        display: flex;
+        justify-content: start;
+        
+        #post-user-name-createdat{
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            p{
+                margin: 2px;
+                
+            }
+            #post-created-at{
+                font-size: 0.8rem;
+                color: #b0bec5;
+            }
+        }
+        #profile-image{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 2rem;
+            }
+        }
+        
+    }
+    #post-content{
+        p{
+            margin: 10px 5px 10px 5px;
+            color: #546e7a;
+        }
+        #post-likes{
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            border-top: 1px solid #e0e0e0;
+            small{
+                margin: 10px 5px 10px 5px;
+            }
+        }
+    }
+    .post-comments-list{
+        border-top: 1px solid #e0e0e0;
+        #comment-profile{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: row;
+            margin-left: 1.5rem;
+        }
+        #profile-image{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 2rem;
+            }
+        }
+        .comment-form{
+            padding-left: 0rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 2rem;
+            width: 20rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 1.5rem;
+            background-color: #eeeeee;
+            margin: 1rem;
+            
+            #comment-btn{
+                border: 0px;
+                // background-color: #b3e5fc;
+                font-weight: 400;
+                font-size:13px;
+                padding: 0px;
+                color: #311b92;
+                margin: 2px 15px 2px 2px;
+                // box-shadow: 0px 0px 3px #888888;
+            }
+            #comment-btn:hover{
+                font-weight: bold;
+                
+            }
+            input{
+                margin: 0.5rem;
+                background-color: #eeeeee;
+                border: 0px;
+                
+            }
+            input:focus{
+                outline: none;
+            }
+        }
+    }
+}

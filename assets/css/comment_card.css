@@ -1,0 +1,64 @@
+.comment {
+  background-color: white;
+  padding: 0.7rem;
+  padding-left: 1.5rem;
+}
+
+.comment #comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+.comment #comment-header .delete-comment-button {
+  text-decoration: none;
+  color: #dd2c00;
+}
+
+.comment #comment-user {
+  display: flex;
+  justify-content: start;
+}
+
+.comment #comment-user #comment-user-name-createdat {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.comment #comment-user #comment-user-name-createdat p {
+  margin: 2px;
+}
+
+.comment #comment-user #comment-user-name-createdat #comment-created-at {
+  font-size: 0.8rem;
+  color: #b0bec5;
+}
+
+.comment #comment-user #profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment #comment-user #profile-image img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+}
+
+.comment #comment-content {
+  padding-left: 2.5rem;
+}
+
+.comment #comment-content p {
+  margin: 5px;
+  color: #546e7a;
+}
+
+.comment #comment-content #comment-likes small {
+  margin: 10px 5px 10px 5px;
+}

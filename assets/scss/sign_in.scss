@@ -1,4 +1,4 @@
-#sign-up-div{
+#sign-in-div{
     // border: 1px solid black;
     display: flex;
     background-color: #def6fc;
@@ -11,6 +11,7 @@
     box-shadow: 0px 0px 3px #888888;
     p{
         margin: 2px;
+        // margin-bottom: 10px;
         text-align: center;
     }
     #social-sign-in{
@@ -19,10 +20,14 @@
         justify-content: center;
         align-items: center;
     }
+    #forgot-password{
+        margin: 15px;
+
+    }
     h1{
         padding: 1rem;
     }
-    #sign-up-form #submit-btn{
+    #sign-in-form #submit-btn{
         height: 2rem;
         width: 7rem;
         border-radius: 1.5rem;
@@ -33,16 +38,16 @@
         padding: 0px;
         box-shadow: 0px 0px 3px #888888;
     }
-    #sign-up-form #submit-btn:hover{
+    #sign-in-form #submit-btn:hover{
         background-color: #0086c3;
     }
-    #sign-up-form{
+    #sign-in-form{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    #sign-up-form input{
+    #sign-in-form input{
         display: block;
         font-size:11px;
         padding:10px;

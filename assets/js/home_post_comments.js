@@ -9,14 +9,19 @@ class PostComments{
     constructor(postId){
         this.postId = postId;
         this.postContainer = $(`#post-${postId}`);
+        this.commentHeader = $('#comment-user-name-createdat');
         this.newCommentForm = $(`#post-${postId}-comments-form`);
-
+        
+        
         this.createComment(postId);
 
         let self = this;
         // call for all the existing comments
         $(' .delete-comment-button', this.postContainer).each(function(){
             self.deleteComment($(this));
+        });
+        $(' #comment-created-at', this.postContainer).each(function(){
+            self.calculate($(this));
         });
     }
 
@@ -108,5 +113,14 @@ class PostComments{
             });
 
         });
+    }
+
+    calculate(createdLink){
+        let createdAt = moment($(createdLink).html());
+        // console.log($(createdLink).html());
+        let time_lapsed = moment(createdAt).from(moment())
+        // console.log('from ajax',time_lapsed);
+        return createdLink.html(time_lapsed)
+        
     }
 }

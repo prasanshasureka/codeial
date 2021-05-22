@@ -110,19 +110,28 @@
         });
     }
 
-    
+    let calculate = function(createdLink){
+        let createdAt = moment($(createdLink).html());
+        // console.log($(createdLink).html());
+        let time_lapsed = moment(createdAt).from(moment())
+        // console.log('from ajax',time_lapsed);
+        return createdLink.html(time_lapsed)
+        
+    }
 
     // loop over all the existing posts on the page (when the window loads for the first time) and call the delete post method on delete link of each, also add AJAX (using the class we've created) to the delete button of each
     let convertPostsToAjax = function(){
         $('#post-list-container>ul>li').each(function(){
             let self = $(this);
             let deleteButton = $(' .delete-post-button', self);
+            let createdLink = $(' #post-created-at', self)
             deletePost(deleteButton);
-
+            calculate(createdLink);
             // get the post's id by splitting the id attribute
             let postId = self.prop('id').split("-")[1]
             new PostComments(postId);
         });
+        
     }
 
 

@@ -1,18 +1,124 @@
 #home-container {
   display: flex;
-  min-height: 100%;
+  margin: 0px;
+}
+
+#home-container ::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
 }
 
 #home-container #feed-posts {
-  width: 80%;
+  width: 55%;
   padding: 10px;
+  height: inherit;
+  margin-left: 23%;
+}
+
+#home-container #feed-posts #make-post {
+  display: flex;
+  height: 10rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  border-radius: 0.5rem;
+  background-color: white;
+  margin: 1rem;
+  box-shadow: 0px 0px 5px #cfd8dc;
+}
+
+#home-container #feed-posts #make-post h4 {
+  margin: 10px 0px 5px 15px;
+}
+
+#home-container #feed-posts #make-post textarea, #home-container #feed-posts #make-post input {
+  display: block;
+  margin: 0.5rem;
+  height: 4rem;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
+  border-radius: 1.5rem;
+  padding-left: 0.5rem;
+  background-color: #eeeeee;
+}
+
+#home-container #feed-posts #make-post textarea:focus {
+  outline: none;
+}
+
+#home-container #feed-posts #make-post textarea::placeholder {
+  padding: 0.5rem;
+}
+
+#home-container #feed-posts #make-post #post-btn {
+  height: 1.5rem;
+  width: 5rem;
+  border-radius: 1.5rem;
+  border: 0px;
+  background-color: #b3e5fc;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0px;
+  margin-left: 1rem;
+}
+
+#home-container #feed-posts #make-post-border {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#home-container #feed-posts #post-list-container ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+#home-container #user-friends, #home-container #user-profile {
+  position: fixed;
+  height: inherit;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 90%;
+  margin-bottom: 0px;
+  align-items: center;
+}
+
+#home-container #user-friends h3, #home-container #user-profile h3 {
+  font-size: 1.5rem;
+  margin: 8px;
+}
+
+#home-container #user-friends:hover, #home-container #user-profile:hover {
+  overflow-y: auto;
 }
 
 #home-container #user-friends {
-  border-left: 1px solid grey;
   width: 20%;
-  padding-left: 10px;
-  height: 100%;
+  border-left: 1px solid #e0e0e0;
+  right: 0;
+}
+
+#home-container #user-friends ul {
+  list-style: none;
+  padding: 0;
+}
+
+#home-container #user-profile {
+  width: 22%;
+  border-right: 1px solid #e0e0e0;
+}
+
+#home-container #user-profile #profile-image {
+  display: flex;
+  justify-content: center;
+}
+
+#home-container #user-profile #profile-image img {
+  width: 70%;
+  height: inherit;
 }
 
 #home-container .welcome-page {
