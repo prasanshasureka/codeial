@@ -40,7 +40,7 @@ class PostComments{
                     let newComment = pSelf.newCommentDom(data.data.comment);
                     $(`#post-comment-${postId}`).prepend(newComment);
                     pSelf.deleteComment($(' .delete-comment-button', newComment));
-
+                    pSelf.newCalculate($(' #comment-created-at', newComment) , data.data.comment);
                     new ToggleLike($(' .toggle-like-button', newComment));
 
                     new Noty({
@@ -64,29 +64,68 @@ class PostComments{
 
 
     newCommentDom(comment){
-        return $(`<li id="comment-${ comment._id }">
+        return $(`<li id="comment-${ comment._id }" class="comment">
+                    <div id="comment-header">
+                        <div id="comment-user">
+                            <div id="profile-image">
+                                <img src="${ comment.user.avatar }" alt="${ comment.user.name }">
+                            </div>
+                            <div id="comment-user-name-createdat">
+                                <p>
+                                ${ comment.user.name }
+                                </p>
+                                <p id="comment-created-at">
+                                    
+                                ${ comment.createdAt }
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <small>
+                            <a class="delete-comment-button" href="/comment/destroy/${ comment._id }"><i class="fas fa-trash-alt"></i></a>
+                        </small>
+                    </div>
+                    <div id="comment-content">
                         <p>
+                        ${ comment.content }
+                        </p>
+                        <div id="comment-likes">
                             
-                            <small>
-                                <a class="delete-comment-button" href="/comment/destroy/${comment._id}">X</a>
-                            </small>
-                            
-                            ${comment.content}
-                            <br>
-                            <small>
-                                ${comment.user.name}
-                            </small>
-                            <br>
                             <small>
                                 <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${ comment._id }&type=Comment">
                                     0 Likes
                                 </a>
                             </small>
                             
-                        </p>    
-
+                        </div>
+                    </div>
                 </li>`);
     }
+
+    // newCommentDom(comment){
+    //     return $(`<li id="comment-${ comment._id }">
+    //                     <p>
+                            
+    //                         <small>
+    //                             <a class="delete-comment-button" href="/comment/destroy/${comment._id}">X</a>
+    //                         </small>
+                            
+    //                         ${comment.content}
+    //                         <br>
+    //                         <small>
+    //                             ${comment.user.name}
+    //                         </small>
+    //                         <br>
+    //                         <small>
+    //                             <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${ comment._id }&type=Comment">
+    //                                 0 Likes
+    //                             </a>
+    //                         </small>
+                            
+    //                     </p>    
+
+    //             </li>`);
+    // }
 
 
     deleteComment(deleteLink){
@@ -116,10 +155,21 @@ class PostComments{
     }
 
     calculate(createdLink){
+        console.log($(createdLink).html(), 'inside comm calc');
         let createdAt = moment($(createdLink).html());
-        // console.log($(createdLink).html());
+        console.log(createdAt);
         let time_lapsed = moment(createdAt).from(moment())
-        // console.log('from ajax',time_lapsed);
+        console.log('from ajax',time_lapsed);
+        return createdLink.html(time_lapsed)
+        
+    }
+
+    // using this function for a new comment as the createdAt for a new comment doesn't support moment
+    // the format of createdAt when stored and then retrieved 
+    // from mongo is diff than what is created in a new comment
+    newCalculate(createdLink, comment){
+        let createdAt = moment(comment.createdAt);
+        let time_lapsed = moment(createdAt).from(moment())
         return createdLink.html(time_lapsed)
         
     }
