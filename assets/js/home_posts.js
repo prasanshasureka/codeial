@@ -13,11 +13,7 @@
                 data: newPostForm.serialize(),
                 success: function(data){
                     let newPost = newPostDom(data.data.post);
-                    
-                    newCalculate($('#post-created-at', newPost), data.data.post);
-                    
                     $('#post-list-container>ul').prepend(newPost);
-                    
                     deletePost($(' .delete-post-button', newPost));
                     
                     // call the create comment class
@@ -63,7 +59,7 @@
                                     ${ post.user.name }
                                 </p>
                                 <p id="post-created-at">
-                                    ${ post.createdAt }
+                                    Just now
                                 </p>
                             </div>
                         </div>
@@ -105,42 +101,6 @@
     
     }
 
-    // let newPostDom = function(post){
-    //     return $(`<li id="post-${ post._id }">
-                    
-    //                     <a class="delete-post-button" href="/posts/destroy/${ post._id }">X</a>
-                    
-    //                 <p>
-    //                 ${ post.content }
-    //                     <br>
-    //                     <small>
-    //                     ${ post.user.name }
-    //                     </small>
-    //                     <br>
-
-    //                     <small>
-    //                         <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${ post._id }&type=Post">
-    //                             0 Likes
-    //                         </a>
-    //                     </small>
-                        
-    //                 </p>
-    //                 <div class="post-comments-list">
-    //                     <ul id="post-comment-${ post._id }">
-                            
-                        
-    //                     </ul>
-                        
-    //                         <form id="post-${ post._id }-comments-form" action="/comment/create" method="POST">
-    //                             <input type="text" name="content" placeholder="Add comment.." required>
-    //                             <input type="hidden" name="post" value="${ post._id }" >
-    //                             <input type="submit" value="Add Comment">
-    //                         </form>
-                        
-    //                 </div>
-    //             </li>`)
-    // }
-
     // method to delete a post from DOM
     let deletePost = function(deleteLink){
         $(deleteLink).click(function(e){
@@ -168,25 +128,6 @@
         });
     }
 
-    // using this function for a new comment as the createdAt for a new comment doesn't support moment
-    // the format of createdAt when stored and then retrieved 
-    // from mongo is diff than what is created in a new comment
-    let newCalculate = function(createdLink, post){
-        let createdAt = moment(post.createdAt);
-        let time_lapsed = moment(createdAt).from(moment())
-        return createdLink.html(time_lapsed)
-    }
-
-    let calculate = function(createdLink){
-        // let createdAt = moment($(createdLink).html());
-        // post = post[0];
-        let createdAt = moment($(createdLink).html());
-        // console.log('inside calculate',post);
-        let time_lapsed = moment(createdAt).from(moment())
-        // console.log('from ajax',time_lapsed);
-        return createdLink.html(time_lapsed)
-        
-    }
 
     // loop over all the existing posts on the page (when the window loads for the first time) and call the delete post method on delete link of each, also add AJAX (using the class we've created) to the delete button of each
     let convertPostsToAjax = function(){
@@ -197,7 +138,6 @@
             let createdLink = $(' #post-created-at', self)
             deletePost(deleteButton);
             
-            calculate(createdLink);
             // get the post's id by splitting the id attribute
             let postId = self.prop('id').split("-")[1]
             new PostComments(postId);

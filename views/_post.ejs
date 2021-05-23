@@ -11,7 +11,7 @@
                     <%= post.user.name %>
                 </p>
                 <p id="post-created-at">
-                    <%= post.createdAt %>
+                    <%= (moment(post.createdAt)).from(moment()) %>
                 </p>
             </div>
         </div>

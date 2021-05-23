@@ -14,6 +14,7 @@ const MongoStore = require('connect-mongo');
 const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMWare = require('./config/middleware');
+const moment = require('moment');
 
 app.use(sassMiddleware({
     src: './assets/scss',
@@ -34,7 +35,7 @@ app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
-
+app.locals.moment = moment;
 //setup the view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');

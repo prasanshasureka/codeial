@@ -12,7 +12,7 @@
                 </p>
                 <p id="comment-created-at">
                     
-                    <%= comment.createdAt %>
+                    <%= (moment(comment.createdAt)).from(moment()) %>
                 </p>
             </div>
         </div>
