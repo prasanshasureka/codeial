@@ -3,6 +3,7 @@
     // min-height: 530px;
     // border: 1px solid black;
     margin: 0px;
+    
     // margin-top: 10%;
     ::-webkit-scrollbar {
         width: 0;  /* Remove scrollbar space */
@@ -10,7 +11,7 @@
     }
     #feed-posts{
         width: 55%;
-        padding: 10px;
+        // padding: 10px;
         height: inherit;
         margin-left: 23%;
         #make-post{
@@ -26,14 +27,13 @@
             border-radius: 0.2rem;
             background-color: white;
             margin: 1rem;
-            
+            // margin-top: 0;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             textarea, input{
                 display: block;
                 margin: 0.5rem;
                 height: 4rem;
                 width: 100%;
-                border: 1px solid #e0e0e0;
                 border: 1px solid #e0e0e0;
                 border-radius: 1.5rem;
                 padding-left: 0.5rem;
@@ -52,11 +52,12 @@
                 width: 5rem;
                 border-radius: 1.5rem;
                 border: 0px;
-                background-color: #b3e5fc;
-                font-weight: bold;
+                background-color: rgb(63, 83, 165);
+                // font-weight: bold;
                 font-size:12px;
                 padding: 0px;
                 margin-left: 1rem;
+                color: white;
             }
         }
         #make-post-border{
@@ -93,7 +94,7 @@
     #user-friends{
         width: 20%;
         border-left: 1px solid #e0e0e0;
-        
+        margin-top: 1rem;
         right: 0;
         ul{
             list-style: none;
@@ -103,16 +104,65 @@
     #user-profile{
         width: 22%;
         border-right: 1px solid #e0e0e0;
-        
-        #profile-image{
+        margin-top: 1rem;
+        #profile-section{
+            width: 90%;
+            border-radius: 0.3rem;
+            background-color: rgb(63, 83, 165);
+            padding: 0.2rem;
+            padding-bottom: 0.5rem;
             display: flex;
-            justify-content: center;
-            img{
-                width: 70%;
-                height: inherit;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            color: #ffffff;
+            // font-weight: 200;
+            #profile-image{
+                display: flex;
+                justify-content: center;
+                
+                img{
+                    width: 70%;
+                    height: inherit;
+                }
+                
             }
-            
+            #nav-links{
+                background-color: rgb(48, 63, 126);
+                display: flex;
+                width: 90%;
+                // margin-left: -5rem;
+                justify-content: end;
+                // align-items: start;
+                flex-wrap: wrap;
+                margin: 1rem;
+                border-radius: 0.3rem;
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    align-items: start;
+                    list-style: none;
+                    margin: 1rem;
+                    padding: 0;
+                    -webkit-column-count: 3;
+                    -moz-column-count: 3;
+                    column-count: 3;
+                    // -webkit-column-count: 2;
+                    li{
+                        padding: 0.3rem;
+                        a{
+                            // padding: 1rem;
+                            text-decoration: none;
+                            color: #ffffff;
+                        }
+                        // width: 5rem;
+                        // float: left;
+                    }
+                }
+            }
         }
+        
     }
     .welcome-page{
         display: flex;

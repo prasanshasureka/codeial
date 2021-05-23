@@ -12,7 +12,6 @@
 
 #home-container #feed-posts {
   width: 55%;
-  padding: 10px;
   height: inherit;
   margin-left: 23%;
 }
@@ -39,7 +38,6 @@
   height: 4rem;
   width: 100%;
   border: 1px solid #e0e0e0;
-  border: 1px solid #e0e0e0;
   border-radius: 1.5rem;
   padding-left: 0.5rem;
   background-color: #eeeeee;
@@ -58,11 +56,11 @@
   width: 5rem;
   border-radius: 1.5rem;
   border: 0px;
-  background-color: #b3e5fc;
-  font-weight: bold;
+  background-color: #3f53a5;
   font-size: 12px;
   padding: 0px;
   margin-left: 1rem;
+  color: white;
 }
 
 #home-container #feed-posts #make-post-border {
@@ -98,6 +96,7 @@
 #home-container #user-friends {
   width: 20%;
   border-left: 1px solid #e0e0e0;
+  margin-top: 1rem;
   right: 0;
 }
 
@@ -109,16 +108,62 @@
 #home-container #user-profile {
   width: 22%;
   border-right: 1px solid #e0e0e0;
+  margin-top: 1rem;
 }
 
-#home-container #user-profile #profile-image {
+#home-container #user-profile #profile-section {
+  width: 90%;
+  border-radius: 0.3rem;
+  background-color: #3f53a5;
+  padding: 0.2rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  color: #ffffff;
+}
+
+#home-container #user-profile #profile-section #profile-image {
   display: flex;
   justify-content: center;
 }
 
-#home-container #user-profile #profile-image img {
+#home-container #user-profile #profile-section #profile-image img {
   width: 70%;
   height: inherit;
+}
+
+#home-container #user-profile #profile-section #nav-links {
+  background-color: #303f7e;
+  display: flex;
+  width: 90%;
+  justify-content: end;
+  flex-wrap: wrap;
+  margin: 1rem;
+  border-radius: 0.3rem;
+}
+
+#home-container #user-profile #profile-section #nav-links ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  list-style: none;
+  margin: 1rem;
+  padding: 0;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+}
+
+#home-container #user-profile #profile-section #nav-links ul li {
+  padding: 0.3rem;
+}
+
+#home-container #user-profile #profile-section #nav-links ul li a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 #home-container .welcome-page {

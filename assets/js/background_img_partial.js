@@ -6,7 +6,7 @@ if (page_title == 'Codeial | Sign Up' || page_title == 'Codeial | Sign In'){
 // console.log(document.getElementById('user-name').innerHTML)
 if (page_title == 'Home Page' && document.getElementById('user-name')){
     layoutMain = document.getElementById('layout-main');
-    layoutMain.style.cssText = "background-image: linear-gradient(90deg, white , #e8eaf6);"
+    layoutMain.style.cssText = "background-image: linear-gradient(90deg, rgb(243, 242, 247) , rgb(236, 236, 244), rgb(238, 238, 247));"
 }
 
 if (page_title == 'Home Page' && document.getElementById('user-name')){

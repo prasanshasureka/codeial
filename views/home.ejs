@@ -4,11 +4,29 @@
 <div id="home-container">
     <% if (locals.user){ %>
         <section id="user-profile">
-            <h3>
-                <%= user.name %>
-            </h3>
-            <div id="profile-image">
-                <img src="<%= user.avatar %>" alt="<%= user.name %>">
+            <div id="profile-section">
+                <h3>
+                    <%= user.name %>
+                </h3>
+                <div id="profile-image">
+                    <img src="<%= user.avatar %>" alt="<%= user.name %>">
+                </div>
+                <div id="nav-links">
+                    <ul>
+                        <li>
+                            <a href="/user/profile/<%= user.id %>"><i class="far fa-newspaper"></i>&nbsp;&nbsp; News</a>
+                        </li>
+                        <li>
+                            <a href="/user/profile/<%= user.id %>"><i class="fas fa-users"></i>&nbsp;&nbsp; Friends</a>
+                        </li>
+                        <li>
+                            <a href="/user/profile/<%= user.id %>"><i class="fas fa-images"></i>&nbsp;&nbsp; Gallery</a>
+                        </li>
+                        <li>
+                            <a href="/user/profile/<%= user.id %>"><i class="fas fa-cubes"></i>&nbsp;&nbsp; Pages</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
         <section id="feed-posts">

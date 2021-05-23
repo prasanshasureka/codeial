@@ -5,7 +5,7 @@ header {
   z-index: 1;
   width: 100%;
   flex-direction: row;
-  background-color: #b3e5fc;
+  background-color: #344990;
   justify-content: space-between;
   box-shadow: 0px 0px 10px #cfd8dc;
 }
@@ -15,7 +15,7 @@ header h2 {
 }
 
 header h2 a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -36,12 +36,11 @@ header ul li #user-name {
 }
 
 header ul li a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 1rem;
 }
 
 header ul li a:hover {
-  color: #01579b;
   font-weight: bold;
 }
