@@ -52,7 +52,7 @@
                     <div id="post-header">
                         <div id="post-user">
                             <div id="profile-image">
-                                <img src="${ post.user.avatar }" alt="${ post.user.name }">
+                                <img src="${ post.user.avatar }" onerror="this.src='/images/avatar-default.png';">
                             </div>
                             <div id="post-user-name-createdat">
                                 <p>

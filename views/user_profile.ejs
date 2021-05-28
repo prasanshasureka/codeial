@@ -12,5 +12,24 @@
 <% }else {%>
     <p>Name: <%= profile_user.name %></p>
     <p>Email: <%= profile_user.email %></p>
+    <div>
+        <form action="/user/toggleFriend" method="POST" id="toggle-friend-form">
+            <!-- <input type="hidden" name="from_user" value="<%= profile_user.name %>"> -->
+            <input type="hidden" name="friend" value="<%= profile_user._id %>">
+            <% if (user.friendships.includes(profile_user.id)) { %>
+                <input type="submit" value="Remove Friend" id="toggle-friend-btn">
+            <% }else {%>
+                <input type="submit" value="Add Friend" id="toggle-friend-btn">
+            <% } %>
+        </form>
+    </div>
 <%} %>
 
+
+<script src="/js/toggle_friends.js"></script>
+<script>
+    $('#toggle-friend-form').each(function(){
+        let self = this;
+        let toggleFriend = new ToggleFriend(self);
+    });
+</script>

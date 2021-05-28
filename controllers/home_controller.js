@@ -21,30 +21,30 @@ module.exports.home = async function(req, res){
             path: 'comments',
             options: { sort: { 'createdAt': -1 } },
             populate: {
-                path: 'user',
-            }
-        })
-        .populate({
-            path: 'comments',
-            populate: {
-                path: 'likes',
-            }
-        })
-        .populate({
-            path: 'comments',
-            options: { sort: { 'createdAt': -1 } },
-            populate: {
-                path: 'post'
+                path: 'user post likes',
             }
         });
 
-        
+        let current_user;
+        let all_users;
+        if (req.user){
+            current_user = await User.findById(req.user.id)
+            .populate({
+                path: 'friendships'
+                // populate: {
+                //     path: 'to_user from_user'
+                // }
+            });
 
-        let all_users = await User.find({});
+            // show all users except the current logged in user
+            all_users = await User.find({_id: {$nin: [req.user.id]}});
+        }
+         
         return res.render('home', {
             title: 'Home Page',
             posts: posts,
-            all_users: all_users
+            all_users: all_users,
+            current_user: current_user
         });
     }catch(err){
         console.log('error', err);

@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Friendship = require('../models/friendships');
 const fs = require('fs');
 const path = require('path');
 
@@ -19,6 +20,56 @@ module.exports.profile = async function(req, res){
     // })
     
 }
+
+
+module.exports.toggleFriend = async function(req, res){
+    console.log('Inside Toggle Friend')
+    try{
+        let deleted = false
+
+        let friendship = await Friendship.findOne({
+            to_user: {$in: [req.user.id, req.body.friend]},
+            from_user: {$in: [req.user.id, req.body.friend]}
+        });
+
+        let currentUser = await User.findOne({_id: req.user.id});
+        let friendUser = await User.findOne({_id: req.body.friend});
+        if (friendship){
+            console.log('Found Friend')
+            currentUser.friendships.pull(friendUser._id);
+            friendUser.friendships.pull(currentUser._id);
+            currentUser.save();
+            friendUser.save();
+
+            friendship.remove();
+
+            deleted = true
+        } else {
+            let newFriendship = await Friendship.create({
+                to_user: req.body.friend,
+                from_user: req.user.id
+            });
+            currentUser.friendships.push(friendUser);
+            friendUser.friendships.push(currentUser);
+            currentUser.save();
+            friendUser.save();
+        }
+
+        return res.status(200).json({
+            message: 'Request successful!',
+            data:{
+                deleted: deleted
+            }
+        })
+        // return res.redirect('back');
+    } catch(err){
+        console.log(err);
+        return res.status(500).json({
+            message: 'Internal Server Error'
+        })
+    }
+}
+
 
 module.exports.update = async function(req, res){
     if (req.params.id == req.user.id){

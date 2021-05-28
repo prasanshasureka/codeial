@@ -62,7 +62,7 @@ class PostComments{
                     <div id="comment-header">
                         <div id="comment-user">
                             <div id="profile-image">
-                                <img src="${ comment.user.avatar }" alt="${ comment.user.name }">
+                                <img src="${ comment.user.avatar }" onerror="this.src='/images/avatar-default.png';">
                             </div>
                             <div id="comment-user-name-createdat">
                                 <p>

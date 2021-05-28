@@ -6,10 +6,10 @@
         <section id="user-profile">
             <div id="profile-section">
                 <h3>
-                    <%= user.name %>
+                    <%= current_user.name %>
                 </h3>
                 <div id="profile-image">
-                    <img src="<%= user.avatar %>" alt="<%= user.name %>">
+                    <img src="<%= current_user.avatar %>" onerror="this.src='/images/avatar-default.png';">
                 </div>
                 <div id="nav-links">
                     <ul>
@@ -51,18 +51,41 @@
         </section>
         
         <section id="user-friends">
-            <h3>
-                Friends
-            </h3>
-            <ul>
-                <% for (u of all_users) {%>
-                    
-                    <li>
-                        <a href="/user/profile/<%= u.id %>"> <%= u.name  %></a>
-                    </li>
-        
-                <% } %>
-            </ul>
+            <div id="current-user-friends">
+                <h3>
+                    Friends
+                </h3>
+                
+                <ul>
+                    <% for (u of current_user.friendships) {%>
+                        
+                        <li>
+                            <div id="profile-image">
+                                <img src="<%= u.avatar %>" onerror="this.src='/images/avatar-default.png';">
+                            </div>
+                            <a href="/user/profile/<%= u.id %>"> <%= u.name  %></a>
+                        </li>
+            
+                    <% } %>
+                </ul>
+            </div>
+            <div>
+                <h3>
+                    All Users
+                </h3>
+                <ul>
+                    <% for (u of all_users) {%>
+                        
+                        <li>
+                            <div id="profile-image">
+                                <img src="<%= u.avatar %>" onerror="this.src='/images/avatar-default.png';">
+                            </div>
+                            <a href="/user/profile/<%= u.id %>"> <%= u.name  %></a>
+                        </li>
+            
+                    <% } %>
+                </ul>
+            </div>
         </section>
         
     <% }else { %>
@@ -82,8 +105,9 @@
 
 <script src="/js/home_post_comments.js" ></script>
 <script src="/js/home_posts.js"></script>
-
+<script src="/js/toggle_friends.js"></script>
 <script src="/js/likes.js"></script>
+
 <script>
     $('.toggle-like-button').each(function(){
         let self = this;

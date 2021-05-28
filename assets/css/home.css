@@ -10,6 +10,18 @@
   /* Optional: just make scrollbar invisible */
 }
 
+#home-container #profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#home-container #profile-image img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
 #home-container #feed-posts {
   width: 55%;
   height: inherit;
@@ -105,6 +117,18 @@
   padding: 0;
 }
 
+#home-container #user-friends ul li {
+  display: flex;
+  margin: 1rem;
+}
+
+#home-container #user-friends ul li a {
+  align-self: center;
+  padding-left: 0.5rem;
+  text-decoration: none;
+  color: black;
+}
+
 #home-container #user-profile {
   width: 22%;
   border-right: 1px solid #e0e0e0;
@@ -113,10 +137,10 @@
 
 #home-container #user-profile #profile-section {
   width: 90%;
+  height: 75%;
   border-radius: 0.3rem;
   background-color: #3f53a5;
   padding: 0.2rem;
-  padding-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -127,11 +151,14 @@
 #home-container #user-profile #profile-section #profile-image {
   display: flex;
   justify-content: center;
+  max-width: 70%;
+  max-height: 40%;
 }
 
 #home-container #user-profile #profile-section #profile-image img {
-  width: 70%;
-  height: inherit;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 #home-container #user-profile #profile-section #nav-links {
@@ -141,6 +168,7 @@
   justify-content: end;
   flex-wrap: wrap;
   margin: 1rem;
+  margin-bottom: 0;
   border-radius: 0.3rem;
 }
 
@@ -152,9 +180,6 @@
   list-style: none;
   margin: 1rem;
   padding: 0;
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-count: 3;
 }
 
 #home-container #user-profile #profile-section #nav-links ul li {

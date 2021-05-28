@@ -4,7 +4,7 @@
     <div id="post-header">
         <div id="post-user">
             <div id="profile-image">
-                <img src="<%= post.user.avatar %>" alt="<%= post.user.name %>">
+                <img src="<%= post.user.avatar %>" onerror="this.src='/images/avatar-default.png';">
             </div>
             <div id="post-user-name-createdat">
                 <p>
@@ -52,7 +52,7 @@
         </ul>
         <div id="comment-profile">
             <div id="profile-image">
-                <img src="<%= user.avatar %>" alt="<%= user.name %>">
+                <img src="<%= user.avatar %>" onerror="this.src='/images/avatar-default.png';">
             </div>
             <% if (locals.user) {%>
                 <form id="post-<%= post._id %>-comments-form" action="/comment/create" method="POST" class="comment-form">
