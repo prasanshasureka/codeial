@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="/css/home.css">
 
-
 <div id="home-container">
     <% if (locals.user){ %>
         <section id="user-profile">
@@ -87,7 +86,7 @@
                 </ul>
             </div>
         </section>
-        
+        <%- include('_chat_engine.ejs') -%>
     <% }else { %>
     <div class="welcome-page">
         <img src="/images/4575.jpg" alt="Poor Connection">
@@ -114,3 +113,10 @@
         let toggleLike = new ToggleLike(self);
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+<% if (locals.user){ %>
+<script>
+    new ChatEngine('chat-window', '<%= locals.user.email %>')
+</script>
+<% } %>

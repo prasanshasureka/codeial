@@ -10,8 +10,6 @@ module.exports.home = async function(req, res){
     //     });
     // });
     
-
-
     try {
         let posts = await Post.find({})
         .sort('-createdAt')
@@ -31,9 +29,6 @@ module.exports.home = async function(req, res){
             current_user = await User.findById(req.user.id)
             .populate({
                 path: 'friendships'
-                // populate: {
-                //     path: 'to_user from_user'
-                // }
             });
 
             // show all users except the current logged in user

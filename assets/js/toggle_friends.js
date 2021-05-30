@@ -1,5 +1,5 @@
-console.log($('#current-user-friends>ul>li>a').html());
-
+// console.log($('#current-user-friends>ul>li>a').html());
+// TODO :: show friend in the the ul of friends on home page
 class ToggleFriend{
     constructor(toggleFriendForm){
         this.toggler = toggleFriendForm;
